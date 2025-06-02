@@ -11,21 +11,22 @@
       <button class="get-photo-button">get</button>
       <h1 class="photo-title">Astronomy Picture of the Day</h1>
 
-      <ul class="card-list">
-        
-        <li class = "card-list-item">
-          <div class="photo-holder"></div>
-          <span class="meta-information">
-            <h3 class="card-title"></h3>
-            <p class="author"></p>
-            <p class="date"></p>
-          </span>
-        </li>
+      <ul class="card-list"></ul>
 
-      </ul>
-
-      <p class="photo-explanation"></p>
-      <script src="./index.js"></script>
+      
     </main>
+
+    <template id="card-template">
+      <li class="card-list-item">
+        <img class="photo-holder" />
+        <span class="meta-information">
+          <h3 class="card-title"></h3>
+          <p class="author"></p>
+          <p class="date"></p>
+          <p class="photo-explanation"></p>
+        </span>
+      </li>
+    </template>
+    <script src="./index.js"></script>
   </body>
 </html>

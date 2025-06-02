@@ -1,25 +1,50 @@
-const keyApi = "GviQzdKjoPGNyhx7DSnbn7zyBGqumbiShUSSVJEh"
-const getButton = document.querySelector(".get-photo-button")
-const photoField = document.querySelector(".photo-holder")
-const photoTitle = document.querySelector(".photo-title")
-const photoExplanation = document.querySelector(".photo-explanation")
-const author = document.querySelector(".author")
-const date = document.querySelector(".date")
-const cardTitle = document.querySelector(".card-title")
+const keyApi = "GviQzdKjoPGNyhx7DSnbn7zyBGqumbiShUSSVJEh";
+const getButton = document.querySelector(".get-photo-button");
+const photoTitle = document.querySelector(".photo-title");
+const cardTitle = document.querySelector(".card-title");
+const cardTemplate = document.querySelector(".card-template");
+const cardList = document.querySelector(".card-list");
 
-getButton.addEventListener("click", getPhotoOfTheDay)
-
+getButton.addEventListener("click", getPhotoOfTheDay);
 
 function getPhotoOfTheDay() {
-fetch(`https://api.nasa.gov/planetary/apod?api_key=${keyApi}`)
-.then((res) => {
-    return res.json()
-})
-.then((res) => {
-    photoExplanation.textContent = res.explanation
-    photoField.style.backgroundImage = `url('${res.hdurl}')`
-    author.textContent = res.copyright
-    date.textContent = res.date.split("-").reverse().join(".")
-    cardTitle.textContent = res.title
-})
+  fetch(`https://api.nasa.gov/planetary/apod?api_key=${keyApi}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      cardList.append(
+        cardRender(
+          res.explanation,
+          res.hdurl,
+          res.copyright,
+          res.date.split("-").reverse().join("."),
+          res.title
+        )
+      );
+    });
+}
+
+function cardRender(
+  photoExplanation,
+  photoField,
+  author,
+  dateValue,
+  cardTitleText
+) {
+  const placeClonedCard = cardTemplate.cloneNode(true);
+
+  const cardPhoto = placeClonedCard.querySelector(".photo-holder");
+  const cardTitle = placeClonedCard.querySelector(".card-title");
+  const cardAuthor = placeClonedCard.querySelector(".author");
+  const date = placeClonedCard.querySelector(".date");
+  const explanation = placeClonedCard.querySelector(".photo-explanation");
+
+  explanation.textContent = photoExplanation;
+  cardPhoto.setAttribute("src", photoField);
+  cardTitle.textContent = cardTitleText;
+  cardAuthor.textContent = author;
+  date.textContent = dateValue;
+
+  return placeClonedCard;
 }
