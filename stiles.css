@@ -27,13 +27,15 @@ a {
 }
 
 body {
-  block-size: 100vh;
-  inline-size: 100vw;
+  block-size: 100%;
+  inline-size: 100%;
   background-color: rgb(241, 241, 182);
 }
 
 .main-section {
   margin: auto;
+  inline-size: 100%;
+  block-size: 100%;
   max-inline-size: 1024px;
   padding: 30px 20px 30px 20px;
   display: flex;
@@ -44,17 +46,35 @@ body {
   background-color: rgb(236, 190, 133);
 }
 
-.meta-information {
-
-}
-
-.photo-container {
+.card-list {
+  list-style-type: none;
   inline-size: 100%;
-  block-size: auto;
-  object-fit: cover;
+  block-size: 100%;
   margin: auto;
   border-radius: 10px;
   background-color: aqua;
+  padding: 20px 10px 20px 10px;
+}
+
+.card-list-item {
+  border-radius: 10px;
+
+  background-color: darkorange;
+  list-style-type: none;
+  inline-size: 50%;
+  block-size: 200px;
+  border: 1px solid red;
+}
+
+.photo-holder {
+  inline-size: 100%;
+  block-size:  100%;
+  object-fit: contain;
+}
+
+.meta-information {
+align-self: flex-start;
+font-style: italic;
 }
 
 .get-photo-button {
