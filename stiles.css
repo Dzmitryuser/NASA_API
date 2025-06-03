@@ -78,7 +78,7 @@ font-style: italic;
 }
 
 .get-photo-button {
-  inline-size: 100px;
+  inline-size: auto;
   block-size: 30px;
   margin: auto;
 }
