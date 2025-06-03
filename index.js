@@ -32,13 +32,17 @@ function cardRender(
   dateValue,
   cardTitleText
 ) {
-  const placeClonedCard = cardTemplate.cloneNode(true);
-
+  const placeClonedCard = cardTemplate.content.cloneNode(true);
   const cardPhoto = placeClonedCard.querySelector(".photo-holder");
   const cardTitle = placeClonedCard.querySelector(".card-title");
   const cardAuthor = placeClonedCard.querySelector(".author");
   const date = placeClonedCard.querySelector(".date");
   const explanation = placeClonedCard.querySelector(".photo-explanation");
+
+  if (!placeClonedCard) {
+    console.error("Шаблон карточки не найден");
+    return;
+  }
 
   explanation.textContent = photoExplanation;
   cardPhoto.setAttribute("src", photoField);
