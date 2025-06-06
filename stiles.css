@@ -32,7 +32,7 @@ body {
   background-color: rgb(241, 241, 182);
 }
 
-.main-section {
+.app-container {
   margin: auto;
   inline-size: 100%;
   block-size: 100%;
@@ -46,6 +46,44 @@ body {
   background-color: rgb(236, 190, 133);
 }
 
+.page-title {
+  margin-block-end: 20px;
+}
+
+.header {
+  inline-size: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.chose-buttons-holder {
+  border-radius: 10px;
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.chose-button {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-section {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.get-photo-button {
+  inline-size: auto;
+  block-size: 30px;
+  margin: auto;
+}
+
 .card-list {
   list-style-type: none;
   inline-size: 100%;
@@ -57,8 +95,8 @@ body {
 }
 
 .card-list-item {
-  border-radius: 10px;
-
+  display: flex;
+  flex-direction: column;
   background-color: darkorange;
   list-style-type: none;
   inline-size: 50%;
@@ -68,19 +106,15 @@ body {
 
 .photo-holder {
   inline-size: 100%;
-  block-size:  100%;
+  block-size: 100%;
   object-fit: contain;
 }
 
 .meta-information {
-align-self: flex-start;
-font-style: italic;
-}
-
-.get-photo-button {
-  inline-size: auto;
-  block-size: 30px;
-  margin: auto;
+  align-self: flex-start;
+  font-style: italic;
+  background-color: darkorange;
+  inline-size: 100%;
 }
 
 .photo-explanation {
