@@ -1,11 +1,38 @@
 const keyApi = "GviQzdKjoPGNyhx7DSnbn7zyBGqumbiShUSSVJEh";
-const getButton = document.querySelector(".get-photo-button");
+let getButton;
 const photoTitle = document.querySelector(".photo-title");
 const cardTitle = document.querySelector(".card-title");
 const cardTemplate = document.querySelector(".card-template");
 const cardList = document.querySelector(".card-list");
+const onePicButton = document.querySelector(".pic-of-the-day");
+const severalPicButton = document.querySelector(".several-pic");
+const byDatePicButton = document.querySelector(".pic-by-date");
+const formsHolder = document.querySelector(".param-form-holder");
+const getOneTemplate = document.querySelector(".photo-of-the-day-form");
+const getSeveralTemplate = document.querySelector(".several-photos-form");
+const getByDateTemplate = document.querySelector(".photos-by-date-form");
 
-getButton.addEventListener("click", getPhotoOfTheDay);
+function formRender(elem) {
+  const clonedForm = elem.content.cloneNode(true);
+  return clonedForm;
+}
+
+onePicButton.addEventListener("click", () => {
+  formsHolder.textContent = "";
+  formsHolder.append(formRender(getOneTemplate));
+  getButton = document.querySelector(".get-photo-button");
+  getButton.addEventListener("click", getPhotoOfTheDay);
+});
+
+severalPicButton.addEventListener("click", () => {
+  formsHolder.textContent = "";
+  formsHolder.append(formRender(getSeveralTemplate));
+});
+
+byDatePicButton.addEventListener("click", () => {
+  formsHolder.textContent = "";
+  formsHolder.append(formRender(getByDateTemplate));
+});
 
 //getPhotosByDate("2017-07-10", "2017-07-15");
 function getPhotosByDate(start, finish) {

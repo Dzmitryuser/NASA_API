@@ -29,10 +29,12 @@ a {
 body {
   block-size: 100%;
   inline-size: 100%;
-  background-color: rgb(241, 241, 182);
+  background-color: rgb(138, 226, 160);
 }
 
 .app-container {
+  border: 1px solid black;
+  border-radius: 10px;
   margin: auto;
   inline-size: 100%;
   block-size: 100%;
@@ -79,32 +81,42 @@ body {
 }
 
 .get-photo-button {
+  border: 1px solid black;
+  border-radius: 10px;
   inline-size: auto;
   block-size: 30px;
   margin: auto;
+  margin-block-start: 15px;
 }
 
 .card-list {
+  border: 1px solid black;
   list-style-type: none;
   inline-size: 100%;
-  block-size: 100%;
+  block-size: auto;
   margin: auto;
   border-radius: 10px;
-  background-color: aqua;
-  padding: 20px 10px 20px 10px;
+  background-color: lightblue;
+  padding: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .card-list-item {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   background-color: darkorange;
-  list-style-type: none;
-  inline-size: 50%;
-  block-size: 200px;
-  border: 1px solid red;
+  inline-size: calc(33% - 10px);
+  min-block-size: 200px;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 .photo-holder {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   inline-size: 100%;
   block-size: 100%;
   object-fit: contain;
@@ -115,6 +127,8 @@ body {
   font-style: italic;
   background-color: darkorange;
   inline-size: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .photo-explanation {

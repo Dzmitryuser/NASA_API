@@ -15,7 +15,7 @@
           <div class="chose-button several-pic">get several pictures</div>
           <div class="chose-button pic-by-date">get pictures by date</div>
         </div>
-        <button class="get-photo-button">get picture of the day</button>
+        <div class="param-form-holder"></div>
       </header>
       <main class="main-section">
         <ul class="card-list"></ul>
@@ -24,13 +24,32 @@
       <template class="card-template">
         <li class="card-list-item">
           <img class="photo-holder" />
-          <div class="meta-information">
+          <span class="meta-information">
             <h3 class="card-title"></h3>
             <p class="author"></p>
             <p class="date"></p>
             <p class="photo-explanation"></p>
-          </div>
+          </span>
         </li>
+      </template>
+
+      <template class="photo-of-the-day-form">
+        <button class="get-photo-button">get picture of the day</button>
+      </template>
+
+      <template class="several-photos-form">
+        <form>
+          <input type="number" />
+          <button type="submit">Search</button>
+        </form>
+      </template>
+
+      <template class="photos-by-date-form">
+        <form>
+          <input type="date" />
+          <input type="date" />
+          <button type="submit">Search</button>
+        </form>
       </template>
 
       <script src="./index.js"></script>
