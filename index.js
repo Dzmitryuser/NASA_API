@@ -8,9 +8,11 @@ const onePicButton = document.querySelector(".pic-of-the-day");
 const severalPicButton = document.querySelector(".several-pic");
 const byDatePicButton = document.querySelector(".pic-by-date");
 const formsHolder = document.querySelector(".param-form-holder");
-const getOneTemplate = document.querySelector(".photo-of-the-day-form");
-const getSeveralTemplate = document.querySelector(".several-photos-form");
-const getByDateTemplate = document.querySelector(".photos-by-date-form");
+const getOneTemplate = document.querySelector(".photo-of-the-day-form-template");
+const getSeveralTemplate = document.querySelector(".several-photos-form-template");
+const getByDateTemplate = document.querySelector(".photos-by-date-form-template");
+let SeveralPhotosForm;
+let photosByDate;
 
 function formRender(elem) {
   const clonedForm = elem.content.cloneNode(true);
@@ -27,12 +29,33 @@ onePicButton.addEventListener("click", () => {
 severalPicButton.addEventListener("click", () => {
   formsHolder.textContent = "";
   formsHolder.append(formRender(getSeveralTemplate));
+  SeveralPhotosForm = document.querySelector(".several-photos-form");
+  SeveralPhotosForm.addEventListener("submit", (evt) => {
+    cardList.textContent = "";
+    severalPhotosAdding(evt)
+  });
 });
 
 byDatePicButton.addEventListener("click", () => {
   formsHolder.textContent = "";
   formsHolder.append(formRender(getByDateTemplate));
+  photosByDate = document.querySelector(".photos-by-date-form");
+  photosByDate.addEventListener("submit", (evt) => {
+    evt.preventDefault()
+    cardList.textContent = "";
+    const startDate = evt.target.querySelector(".start-date")
+    const finishDate = evt.target.querySelector(".finish-date")
+    console.log(startDate)
+    getPhotosByDate(startDate.value, finishDate.value)
+  });
+
 });
+
+function severalPhotosAdding (evt) {
+  evt.preventDefault();
+  const NumberOfPhotosField = evt.target.querySelector(".numder-af-photos-input")
+  getSeveralPhotos(NumberOfPhotosField.value)
+}
 
 //getPhotosByDate("2017-07-10", "2017-07-15");
 function getPhotosByDate(start, finish) {
@@ -60,7 +83,6 @@ function getPhotosByDate(start, finish) {
     .catch((error) => console.error("Ошибка при получении данных:", error));
 }
 
-//getSeveralPhotos(10)
 function getSeveralPhotos(num) {
   fetch(`https://api.nasa.gov/planetary/apod?api_key=${keyApi}&count=${num}`)
     .then((res) => {

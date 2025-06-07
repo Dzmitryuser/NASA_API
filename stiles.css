@@ -75,6 +75,10 @@ body {
   text-align: center;
 }
 
+.param-form-holder {
+  padding: 15px 20px 15px 20px;
+}
+
 .main-section {
   inline-size: 100%;
   block-size: 100%;
@@ -86,7 +90,6 @@ body {
   inline-size: auto;
   block-size: 30px;
   margin: auto;
-  margin-block-start: 15px;
 }
 
 .card-list {
@@ -119,7 +122,7 @@ body {
   border-top-right-radius: 10px;
   inline-size: 100%;
   block-size: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .meta-information {
@@ -132,5 +135,9 @@ body {
 }
 
 .photo-explanation {
+  display: none;
+}
+
+.information-popup {
   display: none;
 }
