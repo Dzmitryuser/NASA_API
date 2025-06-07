@@ -19,8 +19,8 @@ const getByDateTemplate = document.querySelector(
 );
 let SeveralPhotosForm;
 let photosByDate;
-const infoPopup = document.querySelector(".information-popup")
-const closePopupButton = document.querySelector('.close-button')
+const infoPopup = document.querySelector(".information-popup");
+const closePopupButton = document.querySelector(".close-button");
 
 function formRender(elem) {
   const clonedForm = elem.content.cloneNode(true);
@@ -58,8 +58,8 @@ cardList.addEventListener("click", (evt) => {
 });
 
 function openPopup(title, author, date, text, photoUrl) {
-  infoPopup.style.display = "flex"
-  infoPopup.querySelector(".popup-image").setAttribute("src", photoUrl)
+  infoPopup.style.display = "flex";
+  infoPopup.querySelector(".popup-image").setAttribute("src", photoUrl);
   infoPopup.querySelector(".card-title").textContent = title;
   infoPopup.querySelector(".author").textContent = author;
   infoPopup.querySelector(".date").textContent = date;
@@ -67,25 +67,23 @@ function openPopup(title, author, date, text, photoUrl) {
 }
 
 closePopupButton.addEventListener("click", () => {
-  closePopup()
-})
+  closePopup();
+});
 
 document.addEventListener("keydown", (evt) => {
-    if (infoPopup.style.display === "flex") {
-      closePopup();
-    }
+  if (infoPopup.style.display === "flex") {
+    closePopup();
   }
-);
+});
 
 function closePopup() {
-  infoPopup.style.display = "none"
-  infoPopup.querySelector(".popup-image").setAttribute("src", "")
-  infoPopup.querySelector(".card-title").textContent = '';
-  infoPopup.querySelector(".author").textContent = '';
-  infoPopup.querySelector(".date").textContent = '';
-  infoPopup.querySelector(".photo-info").textContent = '';
+  infoPopup.style.display = "none";
+  infoPopup.querySelector(".popup-image").setAttribute("src", "");
+  infoPopup.querySelector(".card-title").textContent = "";
+  infoPopup.querySelector(".author").textContent = "";
+  infoPopup.querySelector(".date").textContent = "";
+  infoPopup.querySelector(".photo-info").textContent = "";
 }
-
 
 byDatePicButton.addEventListener("click", () => {
   formsHolder.textContent = "";
@@ -96,7 +94,6 @@ byDatePicButton.addEventListener("click", () => {
     cardList.textContent = "";
     const startDate = evt.target.querySelector(".start-date");
     const finishDate = evt.target.querySelector(".finish-date");
-    console.log(startDate);
     getPhotosByDate(startDate.value, finishDate.value);
   });
 });
@@ -111,15 +108,14 @@ function severalPhotosAdding(evt) {
 
 //getPhotosByDate("2017-07-10", "2017-07-15");
 function getPhotosByDate(start, finish) {
+  console.log(start - finish)
   fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${keyApi}&start_date=${start}&end_date=${finish}`
   )
     .then((res) => {
-      console.log(res);
       return res.json();
     })
     .then((res) => {
-      console.log(res);
       res.forEach((elem) => {
         cardList.append(
           cardRender(
@@ -157,6 +153,7 @@ function getSeveralPhotos(num) {
 }
 
 function getPhotoOfTheDay() {
+  cardList.textContent = "";
   fetch(`https://api.nasa.gov/planetary/apod?api_key=${keyApi}`)
     .then((res) => {
       return res.json();

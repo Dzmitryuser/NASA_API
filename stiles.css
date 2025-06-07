@@ -42,13 +42,13 @@ body {
   border-radius: 10px;
   margin: auto;
   inline-size: 100%;
-  block-size: 100%;
+  min-block-size: 100%;
   max-inline-size: 1024px;
   padding: 30px 20px 30px 20px;
   display: flex;
   gap: 15px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: rgb(236, 190, 133);
 }
@@ -126,7 +126,7 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   inline-size: 100%;
-  block-size: 100%;
+  aspect-ratio: 2/2;
   object-fit: cover;
 }
 
@@ -174,14 +174,11 @@ body {
   object-fit: contain;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
-
 
 .meta-information {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 30px 10px 30px
-
+  padding: 10px 30px 10px 30px;
 }
