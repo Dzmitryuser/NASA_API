@@ -37,6 +37,7 @@ body {
 }
 
 .app-container {
+  position: relative;
   border: 1px solid black;
   border-radius: 10px;
   margin: auto;
@@ -143,21 +144,44 @@ body {
   display: none;
 }
 
-.information-popup {
-  display: none;
+.close-button {
+  inline-size: 10%;
+  block-size: 10%;
+  position: absolute;
+  right: -15px;
+  top: 0px;
 }
 
-
 .information-popup {
-position: absolute;
-z-index: 2;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  background-color: darkorange;
+  inline-size: 100%;
+  block-size: 98%;
+  position: absolute;
+  z-index: 2;
 }
 
 .popup-image {
+  object-fit: contain;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
 }
 
 
-.popup-text {
+.meta-information {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 30px 10px 30px
 
 }

@@ -19,6 +19,8 @@ const getByDateTemplate = document.querySelector(
 );
 let SeveralPhotosForm;
 let photosByDate;
+const infoPopup = document.querySelector(".information-popup")
+const closePopupButton = document.querySelector('.close-button')
 
 function formRender(elem) {
   const clonedForm = elem.content.cloneNode(true);
@@ -41,6 +43,49 @@ severalPicButton.addEventListener("click", () => {
     severalPhotosAdding(evt);
   });
 });
+
+cardList.addEventListener("click", (evt) => {
+  if (evt.target.classList.contains("photo-holder")) {
+    const cardItem = evt.target.closest(".card-list-item");
+    openPopup(
+      cardItem.querySelector(".card-title").textContent,
+      cardItem.querySelector(".author").textContent,
+      cardItem.querySelector(".date").textContent,
+      cardItem.querySelector(".photo-explanation").textContent,
+      cardItem.querySelector(".photo-holder").getAttribute("src")
+    );
+  }
+});
+
+function openPopup(title, author, date, text, photoUrl) {
+  infoPopup.style.display = "flex"
+  infoPopup.querySelector(".popup-image").setAttribute("src", photoUrl)
+  infoPopup.querySelector(".card-title").textContent = title;
+  infoPopup.querySelector(".author").textContent = author;
+  infoPopup.querySelector(".date").textContent = date;
+  infoPopup.querySelector(".photo-info").textContent = text;
+}
+
+closePopupButton.addEventListener("click", () => {
+  closePopup()
+})
+
+document.addEventListener("keydown", (evt) => {
+    if (infoPopup.style.display === "flex") {
+      closePopup();
+    }
+  }
+);
+
+function closePopup() {
+  infoPopup.style.display = "none"
+  infoPopup.querySelector(".popup-image").setAttribute("src", "")
+  infoPopup.querySelector(".card-title").textContent = '';
+  infoPopup.querySelector(".author").textContent = '';
+  infoPopup.querySelector(".date").textContent = '';
+  infoPopup.querySelector(".photo-info").textContent = '';
+}
+
 
 byDatePicButton.addEventListener("click", () => {
   formsHolder.textContent = "";
