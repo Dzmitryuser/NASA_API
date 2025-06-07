@@ -26,6 +26,10 @@ a {
   color: inherit;
 }
 
+html {
+  block-size: 100%;
+}
+
 body {
   block-size: 100%;
   inline-size: 100%;
@@ -130,6 +134,7 @@ body {
   font-style: italic;
   background-color: darkorange;
   inline-size: 100%;
+  padding: 5px 10px 5px 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -140,4 +145,19 @@ body {
 
 .information-popup {
   display: none;
+}
+
+
+.information-popup {
+position: absolute;
+z-index: 2;
+}
+
+.popup-image {
+
+}
+
+
+.popup-text {
+
 }

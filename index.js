@@ -8,9 +8,15 @@ const onePicButton = document.querySelector(".pic-of-the-day");
 const severalPicButton = document.querySelector(".several-pic");
 const byDatePicButton = document.querySelector(".pic-by-date");
 const formsHolder = document.querySelector(".param-form-holder");
-const getOneTemplate = document.querySelector(".photo-of-the-day-form-template");
-const getSeveralTemplate = document.querySelector(".several-photos-form-template");
-const getByDateTemplate = document.querySelector(".photos-by-date-form-template");
+const getOneTemplate = document.querySelector(
+  ".photo-of-the-day-form-template"
+);
+const getSeveralTemplate = document.querySelector(
+  ".several-photos-form-template"
+);
+const getByDateTemplate = document.querySelector(
+  ".photos-by-date-form-template"
+);
 let SeveralPhotosForm;
 let photosByDate;
 
@@ -32,7 +38,7 @@ severalPicButton.addEventListener("click", () => {
   SeveralPhotosForm = document.querySelector(".several-photos-form");
   SeveralPhotosForm.addEventListener("submit", (evt) => {
     cardList.textContent = "";
-    severalPhotosAdding(evt)
+    severalPhotosAdding(evt);
   });
 });
 
@@ -41,20 +47,21 @@ byDatePicButton.addEventListener("click", () => {
   formsHolder.append(formRender(getByDateTemplate));
   photosByDate = document.querySelector(".photos-by-date-form");
   photosByDate.addEventListener("submit", (evt) => {
-    evt.preventDefault()
+    evt.preventDefault();
     cardList.textContent = "";
-    const startDate = evt.target.querySelector(".start-date")
-    const finishDate = evt.target.querySelector(".finish-date")
-    console.log(startDate)
-    getPhotosByDate(startDate.value, finishDate.value)
+    const startDate = evt.target.querySelector(".start-date");
+    const finishDate = evt.target.querySelector(".finish-date");
+    console.log(startDate);
+    getPhotosByDate(startDate.value, finishDate.value);
   });
-
 });
 
-function severalPhotosAdding (evt) {
+function severalPhotosAdding(evt) {
   evt.preventDefault();
-  const NumberOfPhotosField = evt.target.querySelector(".numder-af-photos-input")
-  getSeveralPhotos(NumberOfPhotosField.value)
+  const NumberOfPhotosField = evt.target.querySelector(
+    ".numder-af-photos-input"
+  );
+  getSeveralPhotos(NumberOfPhotosField.value);
 }
 
 //getPhotosByDate("2017-07-10", "2017-07-15");
@@ -144,6 +151,7 @@ function cardRender(
 
   explanation.textContent = photoExplanation;
   cardPhoto.setAttribute("src", photoField);
+  cardPhoto.setAttribute("alt", cardTitleText);
   cardTitle.textContent = cardTitleText;
   cardAuthor.textContent = author;
   date.textContent = dateValue;

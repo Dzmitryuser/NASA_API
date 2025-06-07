@@ -12,21 +12,26 @@
         <h1 class="page-title">Astronomy Picture of the Day</h1>
         <div class="chose-buttons-holder">
           <div class="chose-button pic-of-the-day">get picture of the day</div>
-          <div class="chose-button several-pic">get several random pictures</div>
+          <div class="chose-button several-pic">
+            get several random pictures
+          </div>
           <div class="chose-button pic-by-date">get pictures by date</div>
         </div>
         <div class="param-form-holder"></div>
       </header>
       <main class="main-section">
         <ul class="card-list"></ul>
-        <div class="information-popup">
 
+        <div class="information-popup">
+          <img class="popup-image" loading="lazy"/>
+          <span class="popup-text"></span>
         </div>
+        
       </main>
 
       <template class="card-template">
         <li class="card-list-item">
-          <img class="photo-holder" />
+          <img class="photo-holder" loading="lazy"/>
           <span class="meta-information">
             <h3 class="card-title"></h3>
             <p class="author"></p>
@@ -49,8 +54,8 @@
 
       <template class="photos-by-date-form-template">
         <form class="photos-by-date-form">
-          <input type="date"  class="start-date"/>
-          <input type="date" class="finish-date"/>
+          <input type="date" class="start-date" />
+          <input type="date" class="finish-date" />
           <button type="submit">Search</button>
         </form>
       </template>
