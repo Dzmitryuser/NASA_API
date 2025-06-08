@@ -1,16 +1,25 @@
-
-:root {
-  --color100: #aff5b4;
-  --color200: #7ee787;
-  --color300: #56d364;
-  --color400: #3fb950;
-  --color500: #2ea043;
-  --color600: #238636;
-  --color700: #196c2e;
-  --color800: #0f5323;
-  --color900: #033a16;
-  --color1000:#04260f;
+/*
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
+
+.roboto-mono-uniquifier> {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+  
+.yanone-kaffeesatz-<uniquifier> {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+  */
+
 
 *,
 *::after,
@@ -41,6 +50,8 @@ a {
 }
 
 html {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 25px;
   block-size: 100%;
 }
 
@@ -48,6 +59,7 @@ body {
   block-size: 100%;
   inline-size: 100%;
   background-image: url("media/mars.jpg");
+  object-fit: contain;
 }
 
 .app-container {
@@ -64,11 +76,14 @@ body {
   justify-content: flex-start;
   align-items: center;
   background-image: url(media/mars2.jpg);
+  object-fit: contain;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
 }
 
 .page-title {
   margin-block-end: 20px;
+  font-family: "Pacifico";
+  font-size: 50px;
 }
 
 .header {
