@@ -101,7 +101,7 @@ byDatePicButton.addEventListener("click", () => {
 function severalPhotosAdding(evt) {
   evt.preventDefault();
   const NumberOfPhotosField = evt.target.querySelector(
-    ".numder-af-photos-input"
+    ".numder-of-photos-input"
   );
   getSeveralPhotos(NumberOfPhotosField.value);
 }

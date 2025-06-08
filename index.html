@@ -47,21 +47,23 @@
       </template>
 
       <template class="photo-of-the-day-form-template">
-        <button class="get-photo-button">get picture of the day</button>
+        <button class=" button get-photo-button">get picture of the day</button>
       </template>
 
       <template class="several-photos-form-template">
+        <h2 class="form-span">enter the number of photos</h2>
         <form class="several-photos-form">
-          <input type="number" class="numder-af-photos-input" />
-          <button type="submit">Search</button>
+          <input type="number" class=" input numder-of-photos-input" required min="0" max="100"/>
+          <button type="submit" class="button">Search</button>
         </form>
       </template>
 
       <template class="photos-by-date-form-template">
+        <h2 class="form-span"s>Enter start and end dates</h2>
         <form class="photos-by-date-form">
-          <input type="date" class="start-date" />
-          <input type="date" class="finish-date" />
-          <button type="submit">Search</button>
+          <input type="date" class=" input start-date" required/>
+          <input type="date" class="input finish-date" required/>
+          <button type="submit" class="button">Search</button>
         </form>
       </template>
 
