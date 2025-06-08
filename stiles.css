@@ -33,7 +33,7 @@ html {
 body {
   block-size: 100%;
   inline-size: 100%;
-  background-color: rgb(138, 226, 160);
+  background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
 }
 
 .app-container {
@@ -50,7 +50,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgb(236, 190, 133);
+  background: linear-gradient(to right,#466954, #544f65, #4822e0);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
 }
 
 .page-title {
@@ -72,13 +73,29 @@ body {
   gap: 5px;
 }
 
-.chose-button {
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: lightblue;
-  padding: 20px;
-  text-align: center;
-}
+.chose-button,
+.get-photo-button
+{
+
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  color: #fff;
+  background: #000a47;
+  line-height: 1.15;
+  font-size: 16px;}
+  
+  
+  .chose-button:hover,
+  .get-photo-button:hover
+  {
+      transition: all .1s ease;
+      box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+  }
 
 .param-form-holder {
   padding: 15px 20px 15px 20px;
@@ -89,19 +106,11 @@ body {
   block-size: 100%;
 }
 
-.get-photo-button {
-  border: 1px solid black;
-  border-radius: 10px;
-  inline-size: auto;
-  block-size: 30px;
-  margin: auto;
-}
-
 .card-list {
   border: 1px solid black;
   list-style-type: none;
   inline-size: 100%;
-  block-size: auto;
+  min-block-size: 100%;
   margin: auto;
   border-radius: 10px;
   background-color: lightblue;
@@ -109,17 +118,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
 }
 
 .card-list-item {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  background-color: darkorange;
+  background-color: rgb(12, 198, 185);
   inline-size: calc(33% - 10px);
   min-block-size: 200px;
   border: 1px solid black;
   box-sizing: border-box;
+  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
 }
 
 .photo-holder {
@@ -133,7 +144,7 @@ body {
 .meta-information {
   align-self: flex-start;
   font-style: italic;
-  background-color: darkorange;
+  background-color: rgb(12, 198, 185);
   inline-size: 100%;
   padding: 5px 10px 5px 10px;
   border-bottom-left-radius: 10px;
@@ -168,6 +179,7 @@ body {
   block-size: 98%;
   position: absolute;
   z-index: 2;
+  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
 }
 
 .popup-image {
@@ -180,5 +192,5 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 30px 10px 30px;
+  padding: 10px;
 }
